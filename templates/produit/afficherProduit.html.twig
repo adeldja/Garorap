@@ -1,0 +1,34 @@
+
+
+{%extends 'base.html.twig'%}
+
+{% block title%}
+    Consulter les produits du superMarché 
+{% endblock%}
+
+{% block body%}
+
+
+
+
+    <div class="container p-3 my-3 border">
+ <h2>Consulter les produits du superMarché </h2>
+    {% for element in lesProduits %}
+
+    <li class="list-group-item">
+           
+            <a> le produit : {{ lesProduits.libelle }} est à {{ lesProduits.prix }}</a>
+            
+            <a ><button class="btn btn-danger">acheter</button></a>
+        </li>
+
+        
+    
+    </div>
+
+{% endblock%}
+
+
+
+    
+

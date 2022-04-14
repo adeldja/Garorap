@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
+class ProduitController extends AbstractController
+{
+    /**
+     * @Route("/afficherProduit", name="afficherProduit")
+     */
+    public function afficherProduit()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $lesProduits = $entityManager->getRepository("App:Produit")->findall();
+        
+        
+        return $this->render('Produit/afficherProduit.html.twig', [
+            'lesProduits' => $lesProduits
+
+         ] );
+    }
+    
+
+}
